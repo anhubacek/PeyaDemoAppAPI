@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:4000',
+        url: process.env.DOMAIN,
         description: 'Servidor local de desarrollo'
       }
     ]
