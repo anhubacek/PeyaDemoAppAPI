@@ -143,7 +143,10 @@
   ],
   "user": {
     "email": "test@demo.com",
-    "fullName": "Test User",
-    "encryptedPassword": "RGVtbzEyMyE="
+    "name": "Test",
+    "lastName": "Demo",
+    "nationality": "Mexican",
+    "password": "RGVtbzEyMyE=",
+    "image": "https://www.w3schools.com/howto/img_avatar.png"
   }
 }
