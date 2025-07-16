@@ -1,6 +1,5 @@
 const Food = require('../models/Food');
 
-// Obtener todos los productos
 const getAllFoods = async (req, res) => {
   try {
     const foods = await Food.find();
@@ -10,7 +9,6 @@ const getAllFoods = async (req, res) => {
   }
 };
 
-// Obtener un solo producto
 const getFoodById = async (req, res) => {
   try {
     const food = await Food.findById(req.params.id);
@@ -21,7 +19,6 @@ const getFoodById = async (req, res) => {
   }
 };
 
-// Crear un nuevo producto
 const createFood = async (req, res) => {
   try {
     const food = new Food(req.body);
@@ -32,7 +29,6 @@ const createFood = async (req, res) => {
   }
 };
 
-// Actualizar un producto
 const updateFood = async (req, res) => {
   try {
     const updated = await Food.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -43,7 +39,6 @@ const updateFood = async (req, res) => {
   }
 };
 
-// Eliminar un producto
 const deleteFood = async (req, res) => {
   try {
     const deleted = await Food.findByIdAndDelete(req.params.id);

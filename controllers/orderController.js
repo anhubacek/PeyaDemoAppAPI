@@ -1,17 +1,15 @@
 const Order = require('../models/Order');
 
-// Crear un nuevo pedido
 const createOrder = async (req, res) => {
   try {
     const order = new Order(req.body);
     const saved = await order.save();
     res.status(201).json(saved);
   } catch (error) {
-    res.status(400).json({ message: 'Error al crear pedido', error });
+    res.status(400).json({ message: "Error al crear pedido", error });
   }
 };
 
-// Obtener historial de pedidos
 const getOrders = async (req, res) => {
   try {
     const orders = await Order.find().sort({ timestamp: -1 });
