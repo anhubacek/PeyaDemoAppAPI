@@ -13,6 +13,7 @@ const registerUser = async (req, res) => {
     const saved = await newUser.save();
     res.status(201).json(saved);
   } catch (error) {
+    console.log('Error registering user:', error);
     res.status(500).json({ message: "Error al registrar usuario", error });
   }
 };
@@ -31,6 +32,7 @@ const loginUser = async (req, res) => {
 
     res.json({ message: "Login exitoso", user });
   } catch (error) {
+    console.log('Error logging in user:', error);
     res.status(500).json({ message: "Error al iniciar sesión", error });
   }
 };
@@ -42,6 +44,7 @@ const getUserByEmail = async (req, res) => {
       return res.status(404).json({ message: "Usuario no encontrado" });
     res.json(user);
   } catch (error) {
+    console.log('Error getting user by email:', error);
     res.status(500).json({ message: "Error al obtener usuario", error });
   }
 };
@@ -66,6 +69,7 @@ const updateUserInfo = async (req, res) => {
 
     res.json(user);
   } catch (error) {
+    console.log('Error updating user info:', error);
     res.status(500).json({ message: "Error al actualizar usuario", error });
   }
 };

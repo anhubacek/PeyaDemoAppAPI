@@ -5,6 +5,7 @@ const getAllFoods = async (req, res) => {
     const foods = await Food.find();
     res.json(foods);
   } catch (error) {
+    console.log('Error getting all foods:', error);
     res.status(500).json({ message: 'Error al obtener productos', error });
   }
 };
@@ -15,6 +16,7 @@ const getFoodById = async (req, res) => {
     if (!food) return res.status(404).json({ message: 'Producto no encontrado' });
     res.json(food);
   } catch (error) {
+    console.log('Error getting food by ID:', error);
     res.status(500).json({ message: 'Error al obtener producto', error });
   }
 };
@@ -25,6 +27,7 @@ const createFood = async (req, res) => {
     const saved = await food.save();
     res.status(201).json(saved);
   } catch (error) {
+    console.log('Error creating food:', error);
     res.status(400).json({ message: 'Error al crear producto', error });
   }
 };
@@ -35,6 +38,7 @@ const updateFood = async (req, res) => {
     if (!updated) return res.status(404).json({ message: 'Producto no encontrado' });
     res.json(updated);
   } catch (error) {
+    console.log('Error updating food:', error);
     res.status(400).json({ message: 'Error al actualizar producto', error });
   }
 };
@@ -45,6 +49,7 @@ const deleteFood = async (req, res) => {
     if (!deleted) return res.status(404).json({ message: 'Producto no encontrado' });
     res.json({ message: 'Producto eliminado correctamente' });
   } catch (error) {
+    console.log('Error deleting food:', error);
     res.status(400).json({ message: 'Error al eliminar producto', error });
   }
 };
