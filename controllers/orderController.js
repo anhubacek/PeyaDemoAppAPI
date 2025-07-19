@@ -3,16 +3,17 @@ const Order = require("../models/Order");
 const createOrder = async (req, res) => {
   try {
     const { email, order } = req.body;
-    console.log("Creating order for email:", email);
-    console.log("Order details:", order);
+
     if (!email || !order) {
       return res
         .status(400)
         .json({ message: "Email y productos son requeridos" });
     }
+    console.log("Creating order for email:", email);
+    console.log("Order details:", order);
     const newOrder = {
       userEmail: email,
-      products: order.products,
+      items: order.items,
       total: order.total,
     };
     await Order.create(newOrder);
