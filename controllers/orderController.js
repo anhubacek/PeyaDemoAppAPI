@@ -9,8 +9,6 @@ const createOrder = async (req, res) => {
         .status(400)
         .json({ message: "Email y productos son requeridos" });
     }
-    console.log("Creating order for email:", email);
-    console.log("Order details:", order);
     const newOrder = {
       userEmail: email,
       items: order.items,
@@ -34,10 +32,10 @@ const getOrders = async (req, res) => {
     res.status(500).json({ message: "Error al obtener pedidos", error });
   }
 };
-const getOrdersByUser = async (req, res) => {
+const getOrdersByUserEmail = async (req, res) => {
   try {
-    const userId = req.params.userId;
-    const orders = await Order.find({ userId }).sort({ timestamp: -1 });
+    const userEmail = req.params.userEmail;
+    const orders = await Order.find({ userEmail }).sort({ timestamp: -1 });
     res.json(orders);
   } catch (error) {
     console.log("Error getting orders by user:", error);
@@ -50,5 +48,5 @@ const getOrdersByUser = async (req, res) => {
 module.exports = {
   createOrder,
   getOrders,
-  getOrdersByUser,
+  getOrdersByUserEmail,
 };

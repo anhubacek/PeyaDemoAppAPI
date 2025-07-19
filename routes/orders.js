@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { createOrder, getOrders, getOrdersByUser } = require('../controllers/orderController');
+const {
+  createOrder,
+  getOrders,
+  getOrdersByUserEmail,
+} = require("../controllers/orderController");
 
 /**
  * @swagger
@@ -64,7 +68,7 @@ const { createOrder, getOrders, getOrdersByUser } = require('../controllers/orde
 // Endpoints
 router.post('/', createOrder);
 router.get('/', getOrders);
-router.get('/user/:userId', getOrdersByUser);
+router.get("/user/:userId", getOrdersByUserEmail);
 
 
 module.exports = router;
