@@ -34,7 +34,7 @@ const getOrders = async (req, res) => {
 };
 const getOrdersByUserEmail = async (req, res) => {
   try {
-    const userEmail = req.params.userEmail;
+    const userEmail = req.params.email;
     const orders = await Order.find({ userEmail }).sort({ timestamp: -1 });
     res.json(orders);
   } catch (error) {
