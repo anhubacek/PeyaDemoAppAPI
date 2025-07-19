@@ -3,6 +3,8 @@ const Order = require("../models/Order");
 const createOrder = async (req, res) => {
   try {
     const { email, order } = new Order(req.body);
+    console.log("Creating order for email:", email);
+    console.log("Order details:", order);
     if (!email || !order) {
       return res
         .status(400)
