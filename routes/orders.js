@@ -68,7 +68,7 @@ const {
 // Endpoints
 router.post('/', createOrder);
 router.get('/', getOrders);
-router.get("/user/:userId", getOrdersByUserEmail);
+router.get("/user/:email", getOrdersByUserEmail);
 
 
 module.exports = router;
