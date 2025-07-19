@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const CartItemSchema = new mongoose.Schema({
+  _id: String,
   name: String,
   description: String,
   imageUrl: String,
@@ -15,7 +16,7 @@ const OrderSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  productIds: [CartItemSchema],
+  products: [CartItemSchema],
   total: {
     type: Number,
     required: true
