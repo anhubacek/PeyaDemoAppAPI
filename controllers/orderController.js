@@ -15,8 +15,9 @@ const createOrder = async (req, res) => {
       products: order.products,
       total: order.total,
     };
-    const saved = await Order.create(newOrder);
-    res.status(201).json(saved);
+    await Order.create(newOrder);
+    userOrders = await Order.find({ userEmail: email }).sort({ createdAt: -1 });
+    res.status(201).json(userOrders);
   } catch (error) {
     console.log("Error creating order:", error);
     res.status(400).json({ message: "Error al crear pedido", error });
